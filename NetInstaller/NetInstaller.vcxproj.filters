@@ -53,25 +53,34 @@
     <ClInclude Include="header\ViewControls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\view\LabelTeste.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="header\abstract\Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="header\view\ButtonTeste.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="header\abstract\Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\view\TextTeste.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="header\abstract\GroupBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\view\Box.h">
+    <ClInclude Include="header\view\NwStatusLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\InstallDriveButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\NwStatusBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\InstallBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\ServerUrlText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\ServerUrlLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\SetupStartButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

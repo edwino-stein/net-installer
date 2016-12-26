@@ -3,7 +3,7 @@
 /* PRIVATE */
 
 WinMain::WinMain() {
-	this->controls = NULL;
+	this->controls = new ViewControls();
 }
 
 LRESULT WinMain::onCreate(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {

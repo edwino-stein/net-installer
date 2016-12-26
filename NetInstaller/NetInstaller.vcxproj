@@ -157,10 +157,13 @@
     <ClInclude Include="header\abstract\Text.h" />
     <ClInclude Include="header\ViewControls.h" />
     <ClInclude Include="header\util\Conversions.h" />
-    <ClInclude Include="header\view\ButtonTeste.h" />
-    <ClInclude Include="header\view\Box.h" />
-    <ClInclude Include="header\view\LabelTeste.h" />
-    <ClInclude Include="header\view\TextTeste.h" />
+    <ClInclude Include="header\view\InstallBox.h" />
+    <ClInclude Include="header\view\InstallDriveButton.h" />
+    <ClInclude Include="header\view\NwStatusBox.h" />
+    <ClInclude Include="header\view\NwStatusLabel.h" />
+    <ClInclude Include="header\view\ServerUrlLabel.h" />
+    <ClInclude Include="header\view\ServerUrlText.h" />
+    <ClInclude Include="header\view\SetupStartButton.h" />
     <ClInclude Include="header\WinMain.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />

@@ -9,11 +9,11 @@ TODO: Separar interface da implementação
 
 	#include "../stdafx.h"
 	#include "../main.h"
-	#include "abstract\ControlsStore.h"
+	#include "ViewControls.h"
 
 	#define MAX_LOADSTRING 100
-	#define INIT_WIDTH 500
-	#define INIT_HEIGHT 500
+	#define INIT_WIDTH 258
+	#define INIT_HEIGHT 265
 
 	class WinMain {
 		private:
