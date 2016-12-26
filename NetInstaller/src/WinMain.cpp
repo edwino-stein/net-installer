@@ -1,8 +1,16 @@
 #include "../header/WinMain.h"
 
-WinMain::WinMain() {}
+/* PRIVATE */
+
+WinMain::WinMain() {
+	this->controls = NULL;
+}
 
 LRESULT WinMain::onCreate(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+
+	//Inicializa os Controls para que sejam renderizados na janela
+	if(this->controls != NULL) this->controls->initObjects(hWnd, hInst);
+
 	return 0;
 }
 
@@ -10,6 +18,9 @@ LRESULT WinMain::onCommand(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 
 	int controlId = LOWORD(wParam);
 	int wmEvent = HIWORD(wParam);
+
+	//Dispara o evento no Control especificado
+	if (this->controls != NULL) this->controls->fireEvent(controlId, wmEvent, wParam, lParam);
 
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
@@ -19,10 +30,15 @@ LRESULT WinMain::onPaint(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
 	HDC hdc = BeginPaint(hWnd, &ps);
 	// TODO: Add any drawing code here...
-
 	EndPaint(hWnd, &ps);
 
 	return 0;
+}
+
+/* PUBLIC */
+
+ControlsStore *WinMain::getControlsStore() {
+	return this->controls;
 }
 
 int WinMain::tMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {

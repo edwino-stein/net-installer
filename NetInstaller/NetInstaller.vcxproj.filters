@@ -38,6 +38,42 @@
     <ClInclude Include="header\WinMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="header\abstract\Control.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\util\Conversions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\abstract\ControlsStore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\abstract\Label.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ViewControls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\LabelTeste.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\abstract\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\ButtonTeste.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\abstract\Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\TextTeste.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\abstract\GroupBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="NetInstaller.rc">
@@ -49,6 +85,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\WinMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\abstract\Control.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\Conversions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\abstract\ControlsStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\abstract\Label.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\abstract\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\abstract\Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\abstract\GroupBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

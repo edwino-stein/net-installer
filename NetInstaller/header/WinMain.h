@@ -9,10 +9,11 @@ TODO: Separar interface da implementação
 
 	#include "../stdafx.h"
 	#include "../main.h"
+	#include "abstract\ControlsStore.h"
 
 	#define MAX_LOADSTRING 100
-	#define INIT_WIDTH 225
-	#define INIT_HEIGHT 225
+	#define INIT_WIDTH 500
+	#define INIT_HEIGHT 500
 
 	class WinMain {
 		private:
@@ -23,6 +24,8 @@ TODO: Separar interface da implementação
 
 			//Contrutor
 			WinMain();
+			
+			ControlsStore *controls;
 
 			HINSTANCE hInst;								// current instance
 			HWND hWnd;										// Handle da janela
@@ -58,6 +61,10 @@ TODO: Separar interface da implementação
 				static WinMain *instance = new WinMain;
 				return instance;
 			}
+				
+
+			ControlsStore *getControlsStore();
+
 
 			/**
 			* Metodo EntryPoint da aplicação
