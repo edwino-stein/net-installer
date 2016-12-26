@@ -2,7 +2,9 @@
 
 #if !defined _VIEW_SETUP_START_BUTTON
 	#define _VIEW_SETUP_START_BUTTON
+
 	#include "../abstract/Button.h"
+	#include "../Controller.h"
 
 	class SetupStartButton : public Button {
 
@@ -22,7 +24,7 @@
 			}
 
 			void onClick() {
-				OutputDebugStringA("Setup\n");
+				Controller::getInstance()->onSetupBtnClicked();
 			}
 	};
 

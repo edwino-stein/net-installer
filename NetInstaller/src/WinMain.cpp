@@ -1,4 +1,5 @@
 #include "../header/WinMain.h"
+#include "../header/Controller.h"
 
 /* PRIVATE */
 
@@ -10,7 +11,7 @@ LRESULT WinMain::onCreate(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	//Inicializa os Controls para que sejam renderizados na janela
 	if(this->controls != NULL) this->controls->initObjects(hWnd, hInst);
-
+	Controller::getInstance()->onReady(hWnd);
 	return 0;
 }
 

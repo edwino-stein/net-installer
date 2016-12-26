@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "header\WinMain.h"
 
+#pragma comment(lib, "ole32.lib")
+
 //Espelho para WinMain::tMain
 int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
 	return WinMain::getInstance()->tMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow);

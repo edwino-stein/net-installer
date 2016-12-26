@@ -10,6 +10,7 @@ TODO: Separar interface da implementação
 	#include "../stdafx.h"
 	#include "../main.h"
 	#include "ViewControls.h"
+	
 
 	#define MAX_LOADSTRING 100
 	#define INIT_WIDTH 258

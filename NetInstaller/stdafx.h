@@ -11,6 +11,8 @@
 // Windows Header Files:
 #include <windows.h>
 #include <windowsx.h>
+#include <Commdlg.h>
+#include <Netlistmgr.h>
 
 // C RunTime Header Files
 #include <stdlib.h>

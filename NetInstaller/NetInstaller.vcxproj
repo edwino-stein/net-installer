@@ -155,6 +155,8 @@
     <ClInclude Include="header\abstract\GroupBox.h" />
     <ClInclude Include="header\abstract\Label.h" />
     <ClInclude Include="header\abstract\Text.h" />
+    <ClInclude Include="header\Controller.h" />
+    <ClInclude Include="header\util\NetworkChecker.h" />
     <ClInclude Include="header\ViewControls.h" />
     <ClInclude Include="header\util\Conversions.h" />
     <ClInclude Include="header\view\InstallBox.h" />
@@ -181,7 +183,9 @@
     <ClCompile Include="src\abstract\Label.cpp" />
     <ClCompile Include="src\abstract\GroupBox.cpp" />
     <ClCompile Include="src\abstract\Text.cpp" />
+    <ClCompile Include="src\Controller.cpp" />
     <ClCompile Include="src\util\Conversions.cpp" />
+    <ClCompile Include="src\util\NetworkChecker.cpp" />
     <ClCompile Include="src\WinMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

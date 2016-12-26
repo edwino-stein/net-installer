@@ -4,6 +4,7 @@
 	#define _VIEW_INSTALL_DRIVE_BUTTON
 
 	#include "../abstract/Button.h"
+	#include "../Controller.h"
 
 	class InstallDriveButton : public Button {
 
@@ -22,7 +23,7 @@
 			}
 
 			void onClick() {
-				OutputDebugStringA("InstallDriveButton\n");
+				Controller::getInstance()->onInstallDriverBtnClicked();
 			}
 	};
 
