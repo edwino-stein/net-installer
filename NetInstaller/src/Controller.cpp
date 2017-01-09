@@ -142,6 +142,11 @@ void Controller::onInstallDriverBtnClicked() {
 	OutputDebugStringA("onInstallDriverBtnClicked\n");
 	std::string driverFile = this->getOpenFilename("Selecione o arquivo do driver...");
 
+	if (driverFile.empty()) {
+		OutputDebugStringA("Nenhum arquivo selecionado\n");
+		return;
+	}
+
 	if (this->loadDriver(driverFile)) {
 		MessageBox(
 			NULL,
