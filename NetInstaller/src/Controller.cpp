@@ -117,6 +117,15 @@ void Controller::onSetupBtnClicked() {
 	}
 
 	std::string url = this->serverUrlText->getText();
+	if (url.empty()) {
+		MessageBox(
+			NULL,
+			L"Um endereço para o arquivos de instalação deve ser informado.\n",
+			NULL,
+			NULL
+		);
+		return;
+	}
 
 	if (this->tryMountShare(url, this->letter)) {
 		this->exec(installer);
