@@ -65,9 +65,6 @@
     <ClInclude Include="header\view\NwStatusLabel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\view\InstallDriveButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="header\view\NwStatusBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -83,10 +80,19 @@
     <ClInclude Include="header\view\SetupStartButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Controller.h">
+    <ClInclude Include="header\util\NetworkChecker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\util\NetworkChecker.h">
+    <ClInclude Include="header\view\NwRefreshBtn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\InstallDriverBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\InstallDriverButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

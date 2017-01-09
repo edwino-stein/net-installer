@@ -160,7 +160,9 @@
     <ClInclude Include="header\ViewControls.h" />
     <ClInclude Include="header\util\Conversions.h" />
     <ClInclude Include="header\view\InstallBox.h" />
-    <ClInclude Include="header\view\InstallDriveButton.h" />
+    <ClInclude Include="header\view\InstallDriverBox.h" />
+    <ClInclude Include="header\view\InstallDriverButton.h" />
+    <ClInclude Include="header\view\NwRefreshBtn.h" />
     <ClInclude Include="header\view\NwStatusBox.h" />
     <ClInclude Include="header\view\NwStatusLabel.h" />
     <ClInclude Include="header\view\ServerUrlLabel.h" />

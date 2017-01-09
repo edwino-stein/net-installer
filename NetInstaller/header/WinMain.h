@@ -10,11 +10,10 @@ TODO: Separar interface da implementação
 	#include "../stdafx.h"
 	#include "../main.h"
 	#include "ViewControls.h"
-	
 
 	#define MAX_LOADSTRING 100
 	#define INIT_WIDTH 258
-	#define INIT_HEIGHT 265
+	#define INIT_HEIGHT 335
 
 	class WinMain {
 		private:

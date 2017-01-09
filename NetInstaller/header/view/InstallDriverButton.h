@@ -1,24 +1,24 @@
 #pragma once
 
-#if !defined _VIEW_INSTALL_DRIVE_BUTTON
-	#define _VIEW_INSTALL_DRIVE_BUTTON
+#if !defined _VIEW_INSTALL_DRIVER_BUTTON
+	#define _VIEW_INSTALL_DRIVER_BUTTON
 
 	#include "../abstract/Button.h"
 	#include "../Controller.h"
 
-	class InstallDriveButton : public Button {
+	class InstallDriverButton : public Button {
 
 		public:
 
 			static const int BTN_ID = 100;
 
-			InstallDriveButton() : Button() {
+			InstallDriverButton() : Button() {
 				index = BTN_ID;
 				x = 24;
-				y = 156;
+				y = 224;
 				width = 194;
 				height = 30;
-				text = "Instalar Driver";
+				text = "Selecionar arquivos...";
 				enabled = true;
 			}
 

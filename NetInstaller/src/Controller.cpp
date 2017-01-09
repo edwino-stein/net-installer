@@ -3,11 +3,11 @@
 #include "../header/util/Conversions.h"
 #include "../header/util/NetworkChecker.h"
 
-#include <process.h>
 
 Controller::Controller(){
 	this->nwStatusLabel = (Label *) WinMain::getInstance()->getControlsStore()->getElementById(10);
 	this->serverUrlText = (Text *) WinMain::getInstance()->getControlsStore()->getElementById(11);
+	this->startBtn = (Button *) WinMain::getInstance()->getControlsStore()->getElementById(200);
 }
 
 int Controller::exec(std::string cmd) {
@@ -18,18 +18,40 @@ int Controller::exec(char *cmd) {
 	return system(cmd);
 }
 
-BOOL Controller::tryMountShare(std::string url) {
-	std::string cmd = "net use z: " + url;
+BOOL Controller::tryUnmount(std::string letter) {
+	std::string label = "echo Tentando desconectar do servidor...";
+	std::string cmd = "net use " + letter + " /delete";
+	cmd = label + " & " + cmd;
+	return this->exec(cmd) == 0;
+}
+
+BOOL Controller::tryMountShare(std::string url, std::string letter) {
+
+	std::string label = "echo Tentando conectar ao servidor...";
+	std::string cmd = "net use " + letter +" " + url;
+	cmd = label + " & " + cmd;
+
+	if (this->pathExists(letter)) this->tryUnmount(letter);
+	return this->exec(cmd) == 0;
+}
+
+BOOL Controller::pathExists(std::string letter) {
+	std::string cmd = "dir " + letter;
 	return this->exec(cmd) == 0;
 }
 
 BOOL Controller::loadDriver(std::string path) {
+	std::string label = "echo Verificando conectividade rede...";
 	std::string cmd = "drvload.exe " + path;
+	cmd = label + " & " + cmd;
 	return this->exec(cmd) == 0;
 }
 
 BOOL Controller::hasNetwork() {
-	return NetworkChecker::check();
+	std::string label = "echo Verificando conectividade rede...";
+	std::string cmd = "net view " + this->serverRoot;
+	cmd = label + " & " + cmd;
+	return this->exec(cmd) == 0;
 }
 
 std::string Controller::getOpenFilename(std::string prompt, char *type) {
@@ -63,29 +85,41 @@ std::string Controller::getOpenFilename(std::string prompt) {
 	return this->getOpenFilename(prompt, NULL);
 }
 
-
 /* CALLBACKS */
 
 void Controller::onReady(HWND hwnd) {
 	this->mainHwnd = hwnd;
 
 	//Carrear dos recursos
-	this->serverUrlText->setText("\\\\server\\PXE\\Windows\\win7\\media");
+	this->serverUrlText->setText(this->serverRoot + this->serverInstallPath);
+	this->onRefreshBtnClicked(); 
+}
 
-	if (this->hasNetwork()) {
-		this->nwStatusLabel->setText("Rede: conectado");
-	}
-	else {
-		this->nwStatusLabel->setText("Rede: desconectado");
-	}
+void  Controller::onHasNetwork() {
+	this->nwStatusLabel->setText("Rede: conectado");
+	if (!this->startBtn->isEnabled()) this->startBtn->toggleEnabled();
+}
+
+void Controller::onNotHasNetwork() {
+	this->nwStatusLabel->setText("Rede: desconectado");
+	if (this->startBtn->isEnabled()) this->startBtn->toggleEnabled();
 }
 
 void Controller::onSetupBtnClicked() {
+
 	OutputDebugStringA("onSetupBtnClicked\n");
+
+	std::string installer = this->letter + "\\" + this->installerFile;
+
+	if (this->pathExists(installer)) {
+		this->exec(installer);
+		return;
+	}
+
 	std::string url = this->serverUrlText->getText();
 
-	if (this->tryMountShare(url)) {
-		this->exec("z:\\setup.exe");
+	if (this->tryMountShare(url, this->letter)) {
+		this->exec(installer);
 	}
 	else {
 		MessageBox(
@@ -97,9 +131,15 @@ void Controller::onSetupBtnClicked() {
 	}
 }
 
-void Controller::onInstallDriverBtnClicked() {
-	OutputDebugStringA("onInstallDriverBtnClicked\n");
+void Controller::onRefreshBtnClicked() {
+	OutputDebugStringA("onRefreshBtnClicked\n");
+	if (this->hasNetwork()) this->onHasNetwork();
+	else this->onNotHasNetwork();
+}
 
+void Controller::onInstallDriverBtnClicked() {
+
+	OutputDebugStringA("onInstallDriverBtnClicked\n");
 	std::string driverFile = this->getOpenFilename("Selecione o arquivo do driver...");
 
 	if (this->loadDriver(driverFile)) {
@@ -110,12 +150,7 @@ void Controller::onInstallDriverBtnClicked() {
 			NULL
 		);
 
-		if (this->hasNetwork()) {
-			this->nwStatusLabel->setText("Rede: conectado");
-		}
-		else {
-			this->nwStatusLabel->setText("Rede: desconectado");
-		}
+		this->onRefreshBtnClicked();
 	}
 	else {
 		MessageBox(

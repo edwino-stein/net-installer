@@ -6,6 +6,7 @@
 	#include "../stdafx.h"
 	#include "abstract/Label.h"
 	#include "abstract/Text.h"
+	#include "abstract/Button.h"
 
 	class Controller {
 
@@ -14,6 +15,15 @@
 			HWND mainHwnd;
 			Label *nwStatusLabel;
 			Text *serverUrlText;
+			Button *startBtn;
+
+			BOOL connected = 0;
+
+			std::string letter = "z:";
+			std::string serverRoot = "\\\\server";
+			std::string serverInstallPath = "\\PXE\\Windows\\win7\\media";
+			std::string installerFile = "setup.exe";
+
 
 			//Definições Singleton
 			Controller(Controller const&);
@@ -22,13 +32,13 @@
 			//Contrutor
 			Controller();
 			
-			
-
 			int exec(std::string cmd);
 			int exec(char *cmd);
 
-			BOOL tryMountShare(std::string url);
+			BOOL tryUnmount(std::string letter);
+			BOOL tryMountShare(std::string url, std::string letter);
 			BOOL loadDriver(std::string path);
+			BOOL pathExists(std::string letter);
 			BOOL hasNetwork();
 
 
@@ -44,7 +54,10 @@
 			}
 
 			void onReady(HWND hwnd);
+			void onHasNetwork();
+			void onNotHasNetwork();
 			void onSetupBtnClicked();
+			void onRefreshBtnClicked();
 			void onInstallDriverBtnClicked();
 	};
 #endif

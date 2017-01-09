@@ -12,6 +12,7 @@ LRESULT WinMain::onCreate(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	//Inicializa os Controls para que sejam renderizados na janela
 	if(this->controls != NULL) this->controls->initObjects(hWnd, hInst);
 	Controller::getInstance()->onReady(hWnd);
+
 	return 0;
 }
 
@@ -142,7 +143,7 @@ LRESULT CALLBACK WinMain::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 			PostQuitMessage(0);
 			break;
 
-		default:
+		default:	
 			return DefWindowProc(hWnd, message, wParam, lParam);
 	}
 
