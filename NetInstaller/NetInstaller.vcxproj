@@ -159,8 +159,10 @@
     <ClInclude Include="header\util\NetworkChecker.h" />
     <ClInclude Include="header\ViewControls.h" />
     <ClInclude Include="header\util\Conversions.h" />
+    <ClInclude Include="header\view\CmdButton.h" />
+    <ClInclude Include="header\view\DiskpartButton.h" />
     <ClInclude Include="header\view\InstallBox.h" />
-    <ClInclude Include="header\view\InstallDriverBox.h" />
+    <ClInclude Include="header\view\UtilBox.h" />
     <ClInclude Include="header\view\InstallDriverButton.h" />
     <ClInclude Include="header\view\NwRefreshBtn.h" />
     <ClInclude Include="header\view\NwStatusBox.h" />

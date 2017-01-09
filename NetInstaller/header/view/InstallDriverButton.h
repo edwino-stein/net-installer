@@ -18,7 +18,7 @@
 				y = 224;
 				width = 194;
 				height = 30;
-				text = "Selecionar arquivos...";
+				text = "Carregar drivers";
 				enabled = true;
 			}
 

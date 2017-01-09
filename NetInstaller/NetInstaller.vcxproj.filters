@@ -86,13 +86,19 @@
     <ClInclude Include="header\view\NwRefreshBtn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\view\InstallDriverBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="header\view\InstallDriverButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="header\Controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\UtilBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\DiskpartButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\CmdButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

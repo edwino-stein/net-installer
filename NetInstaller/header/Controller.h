@@ -58,6 +58,9 @@
 			void onNotHasNetwork();
 			void onSetupBtnClicked();
 			void onRefreshBtnClicked();
+
 			void onInstallDriverBtnClicked();
+			void onDiskpartBtnClicked();
+			void onCmdBtnClicked();
 	};
 #endif

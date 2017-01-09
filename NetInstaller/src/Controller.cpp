@@ -175,3 +175,13 @@ void Controller::onInstallDriverBtnClicked() {
 		);
 	}
 }
+
+void Controller::onDiskpartBtnClicked() {
+	OutputDebugStringA("onDiskpartBtnClicked\n");
+	this->exec("diskpart.exe");
+}
+
+void Controller::onCmdBtnClicked() {
+	OutputDebugStringA("onCmdBtnClicked\n");
+	this->exec("cmd.exe");
+}

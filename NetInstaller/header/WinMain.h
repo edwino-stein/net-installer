@@ -13,7 +13,7 @@ TODO: Separar interface da implementação
 
 	#define MAX_LOADSTRING 100
 	#define INIT_WIDTH 258
-	#define INIT_HEIGHT 335
+	#define INIT_HEIGHT 413
 
 	class WinMain {
 		private:
