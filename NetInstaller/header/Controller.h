@@ -7,6 +7,7 @@
 	#include "abstract/Label.h"
 	#include "abstract/Text.h"
 	#include "abstract/Button.h"
+	#include "util/FilePicker.h"
 
 	class Controller {
 
@@ -24,6 +25,7 @@
 			std::string serverInstallPath = "\\PXE\\Windows\\win7\\media";
 			std::string installerFile = "setup.exe";
 
+			FilePicker *filePicker;
 
 			//Definições Singleton
 			Controller(Controller const&);
@@ -40,11 +42,6 @@
 			BOOL loadDriver(std::string path);
 			BOOL pathExists(std::string letter);
 			BOOL hasNetwork();
-
-
-			std::string getOpenFilename(std::string prompt, char *type);
-			std::string getOpenFilename(std::string prompt, std::string type);
-			std::string getOpenFilename(std::string prompt);
 
 		public:
 

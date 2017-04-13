@@ -54,45 +54,18 @@ BOOL Controller::hasNetwork() {
 	return this->exec(cmd) == 0;
 }
 
-std::string Controller::getOpenFilename(std::string prompt, char *type) {
-
-	const int BUFSIZE = 1024;
-	TCHAR buffer[BUFSIZE] = { 0 };
-
-	OPENFILENAME ofns = { 0 };
-	ofns.lStructSize = sizeof(ofns);
-
-	ofns.hwndOwner = this->mainHwnd;
-	ofns.nMaxFile = 1;
-
-	ofns.lpstrFile = buffer;
-	ofns.nMaxFile = BUFSIZE;
-	ofns.lpstrTitle = Conversions::stringToTCHAR(prompt.c_str());
-
-	if (type != NULL) {
-		ofns.lpstrFilter = Conversions::charToTCHAR(type);
-	}
-
-	GetOpenFileName(&ofns);
-	return Conversions::TCHARToString(buffer);
-}
-
-std::string Controller::getOpenFilename(std::string prompt, std::string type) {
-	return this->getOpenFilename(prompt, (char *) type.c_str());
-}
-
-std::string Controller::getOpenFilename(std::string prompt) {
-	return this->getOpenFilename(prompt, NULL);
-}
-
 /* CALLBACKS */
 
 void Controller::onReady(HWND hwnd) {
 	this->mainHwnd = hwnd;
 
+	//Instancia o FilePicker
+	this->filePicker = new FilePicker(hwnd, "Carregar driver...");
+	this->filePicker->seTypeFilter(_TEXT("Driver (*.inf)\0*.INF\0Qualquer (*.*)\0*.*\0"));
+
 	//Carrear dos recursos
 	this->serverUrlText->setText(this->serverRoot + this->serverInstallPath);
-	this->onRefreshBtnClicked(); 
+	//this->onRefreshBtnClicked(); 
 }
 
 void  Controller::onHasNetwork() {
@@ -149,12 +122,17 @@ void Controller::onRefreshBtnClicked() {
 void Controller::onInstallDriverBtnClicked() {
 
 	OutputDebugStringA("onInstallDriverBtnClicked\n");
-	std::string driverFile = this->getOpenFilename("Selecione o arquivo do driver...");
+
+	std::string driverFile = this->filePicker->getFilePath();
 
 	if (driverFile.empty()) {
 		OutputDebugStringA("Nenhum arquivo selecionado\n");
 		return;
 	}
+
+	OutputDebugStringA("Arquivo selecionado: ");
+	OutputDebugStringA(driverFile.c_str());
+	OutputDebugStringA("\n");
 
 	if (this->loadDriver(driverFile)) {
 		MessageBox(

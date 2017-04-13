@@ -101,6 +101,9 @@
     <ClInclude Include="header\view\CmdButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="header\util\FilePicker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="NetInstaller.rc">
@@ -139,6 +142,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\util\NetworkChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\FilePicker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
