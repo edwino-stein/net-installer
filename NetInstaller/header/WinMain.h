@@ -65,6 +65,7 @@ TODO: Separar interface da implementação
 
 			ControlsStore *getControlsStore();
 
+			std::string loadString(int resourceId);
 
 			/**
 			* Metodo EntryPoint da aplicação

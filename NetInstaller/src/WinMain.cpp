@@ -52,6 +52,7 @@ int WinMain::tMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 	HACCEL hAccelTable;
 
 	//Inicializando propriedades
+	this->hInst = hInstance;
 	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
 	LoadString(hInstance, IDC_NETINSTALLER, szWindowClass, MAX_LOADSTRING);
 	registerClass(hInstance);
@@ -156,4 +157,10 @@ HINSTANCE WinMain::getHandleInstance() {
 
 HWND WinMain::getWindowHandle() {
 	return hWnd;
+}
+
+std::string WinMain::loadString(int resourceId){
+	TCHAR str[MAX_LOADSTRING] = { 0 };
+	LoadString(this->hInst, resourceId, str, MAX_LOADSTRING);
+	return Conversions::TCHARToString(str);
 }
