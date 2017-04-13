@@ -44,9 +44,21 @@ OPENFILENAME* FilePicker::newOPENFILENAME() {
 }
 
 std::string FilePicker::getFilePath() {
+	return this->getFilePath(FALSE);
+}
+
+std::string FilePicker::getFilePath(BOOL keepWorkDir) {
+
+	std::string workDir = this->getWorkDir();
+
 	OPENFILENAME *ofns = this->newOPENFILENAME();
 	GetOpenFileName(ofns);
 	delete ofns;
+
+	if (keepWorkDir) {
+		SetCurrentDirectory(Conversions::stringToTCHAR(workDir.c_str()));
+	}
+
 	return Conversions::TCHARToString(this->buffer);
 }
 
@@ -58,4 +70,10 @@ FilePicker *FilePicker::setTitle(std::string title) {
 FilePicker *FilePicker::seTypeFilter(LPCWSTR typeFilter) {
 	this->typeFilter = typeFilter;
 	return this;
+}
+
+std::string FilePicker::getWorkDir() {
+	TCHAR pwd[MAX_PATH];
+	GetCurrentDirectory(MAX_PATH, pwd);
+	return Conversions::TCHARToString(pwd);
 }

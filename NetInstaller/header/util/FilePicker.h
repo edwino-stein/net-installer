@@ -18,6 +18,8 @@ class FilePicker {
 		OPENFILENAME *newOPENFILENAME();
 		void cleanBuffer();
 
+		std::string getWorkDir();
+
 	public:
 
 		TCHAR *buffer;
@@ -26,6 +28,7 @@ class FilePicker {
 		FilePicker(HWND owner, std::string title);
 
 		std::string getFilePath();
+		std::string getFilePath(BOOL keepWorkDir);
 
 		FilePicker *setTitle(std::string title);
 		FilePicker *seTypeFilter(LPCWSTR typeFilter);
