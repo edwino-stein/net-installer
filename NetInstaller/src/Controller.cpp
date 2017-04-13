@@ -11,11 +11,15 @@ Controller::Controller(){
 }
 
 int Controller::exec(std::string cmd) {
+	OutputDebugStringA("EXEC: ");
+	OutputDebugStringA(cmd.c_str());
+	OutputDebugStringA("\n");
 	return system(cmd.c_str());
 }
 
 int Controller::exec(char *cmd) {
-	return system(cmd);
+	std::string c = cmd;
+	return this->exec(c);
 }
 
 BOOL Controller::tryUnmount(std::string letter) {
@@ -40,10 +44,14 @@ BOOL Controller::pathExists(std::string letter) {
 	return this->exec(cmd) == 0;
 }
 
-BOOL Controller::loadDriver(std::string path) {
-	std::string label = "echo Verificando conectividade rede...";
-	std::string cmd = "drvload.exe " + path;
-	cmd = label + " & " + cmd;
+BOOL Controller::loadDriver(std::string path, BOOL tryNet) {
+	std::string cmd = WinMain::getInstance()->loadString(SCRIPT_LOADDRIVER);
+	cmd += " " + path;
+
+	if (tryNet) {
+		cmd += " " + this->serverRoot;
+	}
+
 	return this->exec(cmd) == 0;
 }
 
@@ -122,7 +130,7 @@ void Controller::onInstallDriverBtnClicked() {
 
 	OutputDebugStringA("onInstallDriverBtnClicked\n");
 
-	std::string driverFile = this->filePicker->getFilePath();
+	std::string driverFile = this->filePicker->getFilePath(TRUE);
 
 	if (driverFile.empty()) {
 		OutputDebugStringA("Nenhum arquivo selecionado\n");
@@ -133,24 +141,18 @@ void Controller::onInstallDriverBtnClicked() {
 	OutputDebugStringA(driverFile.c_str());
 	OutputDebugStringA("\n");
 
-	if (this->loadDriver(driverFile)) {
-		MessageBox(
-			NULL,
-			L"O driver foi carregado com sucesso!\n",
-			NULL,
-			NULL
-		);
-
-		this->onRefreshBtnClicked();
-	}
-	else {
+	if (!this->loadDriver(driverFile, TRUE)) {
 		MessageBox(
 			NULL,
 			L"Houve um erro durante o carregamento do driver\n",
 			NULL,
 			NULL
 		);
+
+		return;
 	}
+
+	this->onHasNetwork();
 }
 
 void Controller::onDiskpartBtnClicked() {

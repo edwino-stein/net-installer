@@ -152,5 +152,8 @@
     <None Include="Scripts\net-test.bat">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="Scripts\load-driver.bat">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
