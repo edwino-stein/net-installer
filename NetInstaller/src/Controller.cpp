@@ -48,9 +48,8 @@ BOOL Controller::loadDriver(std::string path) {
 }
 
 BOOL Controller::hasNetwork() {
-	std::string label = "echo Verificando conectividade rede...";
-	std::string cmd = "net view " + this->serverRoot;
-	cmd = label + " & " + cmd;
+	std::string cmd = WinMain::getInstance()->loadString(SCRIPT_NETTEST);
+	cmd += " " + this->serverRoot;
 	return this->exec(cmd) == 0;
 }
 
