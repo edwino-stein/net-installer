@@ -191,5 +191,6 @@
     <None Include="Scripts\setup.bat">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="config.json" />
   </ItemGroup>
 </Project>

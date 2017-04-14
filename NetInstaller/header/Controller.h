@@ -17,15 +17,14 @@
 			HWND mainHwnd;
 			Label *nwStatusLabel;
 			Text *serverUrlText;
+			Text *serverPathText;
 			Button *startBtn;
 			Dropdown *letterDropdown;
 
 			BOOL connected = 0;
 
-			std::string letter = "z:";
-			std::string serverRoot = "\\\\server";
-			std::string serverInstallPath = "\\PXE\\Windows\\win7\\media";
-			std::string installerFile = "setup.exe";
+			nlohmann::json config;
+			std::vector<char> letterList;
 
 			FilePicker *filePicker;
 
@@ -42,6 +41,8 @@
 			BOOL loadDriver(std::string path, BOOL tryNet);
 			BOOL hasNetwork();
 
+			std::string getLetterSelected();
+			void loadConfig();
 		public:
 
 			static Controller* getInstance() {

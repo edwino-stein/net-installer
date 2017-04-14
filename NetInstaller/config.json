@@ -1,0 +1,5 @@
+{
+	"serverUri": "server.stein.lan",
+	"installPath": "PXE\\Windows\\win7\\media",
+	"installExe": "setup.exe"
+}

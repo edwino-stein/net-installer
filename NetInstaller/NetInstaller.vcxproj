@@ -204,6 +204,7 @@
     <ClCompile Include="src\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="config.json" />
     <None Include="Scripts\load-driver.bat" />
     <None Include="Scripts\net-mount.bat" />
     <None Include="Scripts\net-test.bat" />
