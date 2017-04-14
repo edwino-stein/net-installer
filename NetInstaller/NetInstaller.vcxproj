@@ -179,6 +179,7 @@
     <ClInclude Include="header\view\SetupStartButton.h" />
     <ClInclude Include="header\view\VersionLabel.h" />
     <ClInclude Include="header\WinMain.h" />
+    <ClInclude Include="Lib\json.hpp" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />

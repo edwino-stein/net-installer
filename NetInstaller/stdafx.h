@@ -19,9 +19,12 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-#include<iostream>
+#include <iostream>
+#include <fstream>
 #include <string.h>
 #include <vector>
 #include <sstream>
 
 // TODO: reference additional headers your program requires here
+
+#include "Lib\json.hpp"
