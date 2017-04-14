@@ -17,7 +17,8 @@
 				x = 24;
 				y = 39;
 				width = 45;
-				height = 100;
+				height = 200;
+				style |= WS_VSCROLL;
 			}
 	};
 

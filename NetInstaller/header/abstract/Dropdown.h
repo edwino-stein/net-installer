@@ -25,6 +25,7 @@
 			LRESULT onCommand(int index, int wmEvent, WPARAM wParam, LPARAM lParam);
 
 			int getSelectedIndex();
+			void setValue(int index);
 			int addItem(std::string label);
 			int addItem(char *label);
 			void toggleEnabled();

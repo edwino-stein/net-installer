@@ -120,3 +120,7 @@ int Dropdown::count() {
 void Dropdown::reset() {
 	ComboBox_ResetContent(this->handle);
 }
+
+void Dropdown::setValue(int index) {
+	ComboBox_SetCurSel(this->handle, index);
+}
