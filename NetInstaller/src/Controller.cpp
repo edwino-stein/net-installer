@@ -22,28 +22,6 @@ int Controller::exec(char *cmd) {
 	return this->exec(c);
 }
 
-BOOL Controller::tryUnmount(std::string letter) {
-	std::string label = "echo Tentando desconectar do servidor...";
-	std::string cmd = "net use " + letter + " /delete";
-	cmd = label + " & " + cmd;
-	return this->exec(cmd) == 0;
-}
-
-BOOL Controller::tryMountShare(std::string url, std::string letter) {
-
-	std::string label = "echo Tentando conectar ao servidor...";
-	std::string cmd = "net use " + letter +" " + url;
-	cmd = label + " & " + cmd;
-
-	if (this->pathExists(letter)) this->tryUnmount(letter);
-	return this->exec(cmd) == 0;
-}
-
-BOOL Controller::pathExists(std::string letter) {
-	std::string cmd = "dir " + letter;
-	return this->exec(cmd) == 0;
-}
-
 BOOL Controller::loadDriver(std::string path, BOOL tryNet) {
 	std::string cmd = WinMain::getInstance()->loadString(SCRIPT_LOADDRIVER);
 	cmd += " " + path;
@@ -86,18 +64,10 @@ void Controller::onNotHasNetwork() {
 }
 
 void Controller::onSetupBtnClicked() {
-
 	OutputDebugStringA("onSetupBtnClicked\n");
 
-	std::string installer = this->letter + "\\" + this->installerFile;
-
-	if (this->pathExists(installer)) {
-		this->exec(installer);
-		return;
-	}
-
-	std::string url = this->serverUrlText->getText();
-	if (url.empty()) {
+	std::string serverUrl = this->serverUrlText->getText();
+	if (serverUrl.empty()) {
 		MessageBox(
 			NULL,
 			L"Um endereço para o arquivos de instalação deve ser informado.\n",
@@ -107,13 +77,21 @@ void Controller::onSetupBtnClicked() {
 		return;
 	}
 
-	if (this->tryMountShare(url, this->letter)) {
-		this->exec(installer);
-	}
-	else {
+	std::string cmd = WinMain::getInstance()->loadString(SCRIPT_SETUP);
+	cmd += " " + this->letter;
+	cmd += " " + serverUrl;
+	cmd += " " + this->installerFile;
+
+	int code = this->exec(cmd);
+	if (code != 0) {
+
+		OutputDebugStringA("Return Code: ");
+		OutputDebugStringA(std::to_string(code).c_str());
+		OutputDebugStringA("\n");
+
 		MessageBox(
 			NULL,
-			L"Houve um erro enquanto o windows tentava montar a unidade de rede.\n",
+			L"Houve um erro durante a tentativa de inicializar a instalação.\n",
 			NULL,
 			NULL
 		);

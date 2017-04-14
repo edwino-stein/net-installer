@@ -37,10 +37,7 @@
 			int exec(std::string cmd);
 			int exec(char *cmd);
 
-			BOOL tryUnmount(std::string letter);
-			BOOL tryMountShare(std::string url, std::string letter);
 			BOOL loadDriver(std::string path, BOOL tryNet);
-			BOOL pathExists(std::string letter);
 			BOOL hasNetwork();
 
 		public:

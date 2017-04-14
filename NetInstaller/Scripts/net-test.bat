@@ -50,7 +50,7 @@ set serverURI=%1
 	timeout 5
 	
 	if "%DEBUGING%" == "0" (
-		exit %returned%
+		exit /B %returned%
 	)
 
 @ECHO on

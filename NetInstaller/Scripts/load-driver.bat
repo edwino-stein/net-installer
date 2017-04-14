@@ -4,7 +4,7 @@ chcp 1252 >nul 2>&1
 echo.
 ECHO ************** Carregar Driver **************
 
-set DEBUGING=0
+set DEBUGING=1
 set filePath=%1
 set tryNet=%2
 
@@ -45,5 +45,5 @@ if %returned% == 0 (
 	timeout 5
 	
 	if "%DEBUGING%" == "0" (
-		exit %returned%
+		exit /B %returned%
 	)

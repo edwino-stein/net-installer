@@ -155,5 +155,14 @@
     <None Include="Scripts\load-driver.bat">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="Scripts\net-mount.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Scripts\net-unmount.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Scripts\setup.bat">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
