@@ -16,7 +16,7 @@
 			CmdButton() : Button() {
 				index = BTN_ID;
 				x = 24;
-				y = 300;
+				y = 340;
 				width = 194;
 				height = 30;
 				text = "Prompt de Comando";

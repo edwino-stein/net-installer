@@ -13,7 +13,7 @@
 			SetupStartButton() : Button() {
 				index = 200;
 				x = 24;
-				y = 69;
+				y = 110;
 				width = 194;
 				height = 30;
 				font.weight = FONT_WEIGHT_BOLD;

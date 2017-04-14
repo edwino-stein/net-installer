@@ -8,6 +8,7 @@ Controller::Controller(){
 	this->nwStatusLabel = (Label *) WinMain::getInstance()->getControlsStore()->getElementById(10);
 	this->serverUrlText = (Text *) WinMain::getInstance()->getControlsStore()->getElementById(11);
 	this->startBtn = (Button *) WinMain::getInstance()->getControlsStore()->getElementById(200);
+	this->letterDropdown = (Dropdown *)WinMain::getInstance()->getControlsStore()->getElementById(300);
 }
 
 int Controller::exec(std::string cmd) {

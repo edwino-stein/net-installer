@@ -11,7 +11,7 @@
 			UtilBox() : GroupBox() {
 				index = 11;
 				x = 12;
-				y = 205;
+				y = 245;
 				width = 220;
 				height = 138;
 				text = "Utilitarios";

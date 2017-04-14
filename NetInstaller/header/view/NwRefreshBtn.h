@@ -15,7 +15,7 @@
 			NwRefreshBtn() : Button() {
 				index = BTN_ID;
 				x = 24;
-				y = 156;
+				y = 196;
 				width = 194;
 				height = 30;
 				text = "Atualizar Status";

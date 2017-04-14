@@ -161,9 +161,14 @@
     <ClInclude Include="header\util\NetworkChecker.h" />
     <ClInclude Include="header\ViewControls.h" />
     <ClInclude Include="header\util\Conversions.h" />
+    <ClInclude Include="header\view\AboutLabel.h" />
     <ClInclude Include="header\view\CmdButton.h" />
     <ClInclude Include="header\view\DiskpartButton.h" />
     <ClInclude Include="header\view\InstallBox.h" />
+    <ClInclude Include="header\view\LetterDropdown.h" />
+    <ClInclude Include="header\view\LetterLabel.h" />
+    <ClInclude Include="header\view\ServerPathLabel.h" />
+    <ClInclude Include="header\view\ServerPathText.h" />
     <ClInclude Include="header\view\UtilBox.h" />
     <ClInclude Include="header\view\InstallDriverButton.h" />
     <ClInclude Include="header\view\NwRefreshBtn.h" />
@@ -172,6 +177,7 @@
     <ClInclude Include="header\view\ServerUrlLabel.h" />
     <ClInclude Include="header\view\ServerUrlText.h" />
     <ClInclude Include="header\view\SetupStartButton.h" />
+    <ClInclude Include="header\view\VersionLabel.h" />
     <ClInclude Include="header\WinMain.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />

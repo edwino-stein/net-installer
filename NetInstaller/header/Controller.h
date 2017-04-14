@@ -7,6 +7,7 @@
 	#include "abstract/Label.h"
 	#include "abstract/Text.h"
 	#include "abstract/Button.h"
+	#include "abstract/Dropdown.h"
 	#include "util/FilePicker.h"
 
 	class Controller {
@@ -17,6 +18,7 @@
 			Label *nwStatusLabel;
 			Text *serverUrlText;
 			Button *startBtn;
+			Dropdown *letterDropdown;
 
 			BOOL connected = 0;
 

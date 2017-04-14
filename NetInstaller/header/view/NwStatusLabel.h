@@ -9,7 +9,7 @@
 			NwStatusLabel() : Label() {
 				index = 10;
 				x = 24;
-				y = 137;
+				y = 177;
 				width = 194;
 				height = 17;
 				text = "Rede: desconectado";

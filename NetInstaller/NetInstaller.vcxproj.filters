@@ -107,6 +107,24 @@
     <ClInclude Include="header\abstract\Dropdown.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="header\view\LetterDropdown.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\LetterLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\ServerPathLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\ServerPathText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\AboutLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\view\VersionLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="NetInstaller.rc">

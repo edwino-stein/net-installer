@@ -15,7 +15,7 @@
 			InstallDriverButton() : Button() {
 				index = BTN_ID;
 				x = 24;
-				y = 224;
+				y = 264;
 				width = 194;
 				height = 30;
 				text = "Carregar drivers";

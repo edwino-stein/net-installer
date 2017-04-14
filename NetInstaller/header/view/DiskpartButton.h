@@ -16,7 +16,7 @@
 			DiskpartButton() : Button() {
 				index = BTN_ID;
 				x = 24;
-				y = 262;
+				y = 302;
 				width = 194;
 				height = 30;
 				text = "Diskpart";

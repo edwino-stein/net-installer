@@ -11,7 +11,7 @@
 				x = 12;
 				y = 3;
 				width = 220;
-				height = 110;
+				height = 150;
 				text = "Setup";
 			}
 	};

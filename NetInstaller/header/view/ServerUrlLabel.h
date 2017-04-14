@@ -8,9 +8,9 @@
 	class ServerUrlLabel : public Label {
 		public:
 			ServerUrlLabel() : Label() {
-				x = 24;
+				x = 79;
 				y = 20;
-				width = 194;
+				width = 139;
 				height = 17;
 				text = "Endereco do servidor:";
 			}

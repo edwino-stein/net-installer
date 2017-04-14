@@ -9,7 +9,7 @@
 			NwStatusBox() : GroupBox() {
 				index = 11;
 				x = 12;
-				y = 120;
+				y = 160;
 				width = 220;
 				height = 80;
 				text = "Status da Rede";
