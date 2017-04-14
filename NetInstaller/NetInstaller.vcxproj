@@ -152,6 +152,7 @@
     <ClInclude Include="header\abstract\Button.h" />
     <ClInclude Include="header\abstract\Control.h" />
     <ClInclude Include="header\abstract\ControlsStore.h" />
+    <ClInclude Include="header\abstract\Dropdown.h" />
     <ClInclude Include="header\abstract\GroupBox.h" />
     <ClInclude Include="header\abstract\Label.h" />
     <ClInclude Include="header\abstract\Text.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="src\abstract\Button.cpp" />
     <ClCompile Include="src\abstract\Control.cpp" />
     <ClCompile Include="src\abstract\ControlsStore.cpp" />
+    <ClCompile Include="src\abstract\Dropdown.cpp" />
     <ClCompile Include="src\abstract\Label.cpp" />
     <ClCompile Include="src\abstract\GroupBox.cpp" />
     <ClCompile Include="src\abstract\Text.cpp" />
