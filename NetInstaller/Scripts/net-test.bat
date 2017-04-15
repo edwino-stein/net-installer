@@ -16,9 +16,9 @@ set serverURI=%1
 	echo %tryCount%ª Tentativa...
 
 	if "%DEBUGING%" == "0" (
-		net view %serverURI% >nul 2>&1
+		call net view >nul 2>&1
 	) else (
-		net view %serverURI%
+		call net view
 	)
 
 	
@@ -47,7 +47,7 @@ set serverURI=%1
 :exit
 	
 	echo Código de retorno: %returned%
-	timeout 5
+	pause
 	
 	if "%DEBUGING%" == "0" (
 		exit /B %returned%
