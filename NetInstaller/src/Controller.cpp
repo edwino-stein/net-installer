@@ -50,6 +50,10 @@ BOOL Controller::hasNetwork() {
 void Controller::onReady(HWND hwnd) {
 	this->mainHwnd = hwnd;
 
+	OutputDebugStringA("Versao: ");
+	OutputDebugStringA(VER_FILE_VERSION_STR);
+	OutputDebugStringA("\n");
+
 	//Instancia o FilePicker
 	this->filePicker = new FilePicker(hwnd, "Carregar driver...");
 	this->filePicker->seTypeFilter(_TEXT("Driver (*.inf)\0*.INF\0Qualquer (*.*)\0*.*\0"));
