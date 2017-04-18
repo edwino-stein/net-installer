@@ -214,6 +214,7 @@
     <None Include="Scripts\setup.bat" />
     <None Include="Scripts\startup.bat" />
     <None Include="Scripts\wait.bat" />
+    <None Include="Scripts\winver.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
