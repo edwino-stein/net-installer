@@ -72,9 +72,12 @@ void Controller::onReady(HWND hwnd) {
 		this->letterDropdown->addItem(letter);
 	}
 
+	#ifndef _DEBUG
+	this->onRefreshBtnClicked();
 	this->letterDropdown->setValue(0);
-
-	//this->onRefreshBtnClicked();
+	#else
+	this->letterDropdown->setValue(this->letterList.size() - 1);
+	#endif
 }
 
 void  Controller::onHasNetwork() {
