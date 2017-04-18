@@ -195,5 +195,11 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="config.json" />
+    <None Include="Scripts\startup.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Scripts\wait.bat">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
