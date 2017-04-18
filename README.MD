@@ -27,3 +27,37 @@ oscdimg -n -bC:\winpe_x86\etfsboot.com C:\winpe_x86\ISO C:\winpe_x86\winpe_x86.i
  - Outras informações, acessar os guias presente na documentação o WAIK:
     * Walkthrough: Create a Custom Windows PE Image.
     * Walkthrough: Create a Bootable Windows PE RAM Disk on CD-ROM.
+
+
+### Para Windows 10 (1607)
+É necessário compilar o código para release em x64 e então utilizar os arquivos compactados em "BootFiles/winPE_x64_wi10_1607.zip" com Ambiente de Ferramentas de Implantação e Geração de Imagens o Windows Kits para windows 10.
+
+
+
+ - Mountar a imagem do sistem:
+```
+Dism /Mount-Wim /WimFile:media\sources\boot.wim /index:1 /MountDir:mount
+
+```
+
+ - Salvar alterações da imagem do sistema:
+
+```
+Dism /unmount-Wim /MountDir:mount /Commit
+
+```
+
+ - Compilar arquivo ISO para MBR:
+```
+oscdimg -n -bfwfiles\etfsboot.com media winpe10-1607_x64.iso
+```
+
+ - Compilar arquivo ISO para UEFI:
+```
+oscdimg.exe -bfwfiles\efisys.bin -u2 -udfver102 media winpe10-1604_x64_uefi.iso
+```
+
+ - Para forçar o desmontamento da imagem .WIN
+```
+Imagex /unmount mount
+```
