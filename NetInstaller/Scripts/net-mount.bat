@@ -2,6 +2,8 @@
 chcp 1252 >nul 2>&1
 
 set DEBUGING=0
+set user=pxe
+set passwd=gwh28dgcmp
 set letter=%1
 set serverUri=%2
 set /A tryCount=0
@@ -34,8 +36,15 @@ echo Mountando %serverUri% em %letter%...
 	echo %tryCount%ª Tentativa...
 
 	if "%DEBUGING%" == "0" (
-		net use %letter% %serverUri%
-		set returned=%ERRORLEVEL%
+
+		call net use %letter% %serverUri% /u:%user% %passwd%
+		
+		if exist %letter% (
+			set returned=0
+		) else (
+			set returned=1
+		)
+
 	) else (
 		set returned=1
 	)

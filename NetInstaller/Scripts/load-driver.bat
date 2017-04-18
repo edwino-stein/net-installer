@@ -17,8 +17,6 @@ if "%DEBUGING%" == "0" (
 	set returned=0
 )
 
-timeout 2 >nul 2>&1
-
 if %returned% == 0 (
 	goto success
 )
@@ -42,7 +40,7 @@ if %returned% == 0 (
 :exit
 
 	echo Código de retorno: %returned%
-	timeout 5
+	pause
 	
 	if "%DEBUGING%" == "0" (
 		exit /B %returned%

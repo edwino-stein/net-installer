@@ -63,5 +63,5 @@ goto success
 
 :exit
 	echo Código de retorno: %returned%
-	timeout 5
+	pause
 	exit /B %returned%

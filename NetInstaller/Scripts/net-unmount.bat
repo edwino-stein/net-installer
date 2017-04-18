@@ -27,7 +27,7 @@ echo Desmountando unidade %letter%...
 	echo %tryCount%ª Tentativa...
 
 	if "%DEBUGING%" == "0" (
-		net use %letter% /delete
+		call net use %letter% /delete
 		set returned=%ERRORLEVEL%
 	) else (
 		set returned=0
