@@ -8,20 +8,20 @@
 
  - Mountar a imagem do sistem:
 ```
-Dism /Mount-Wim /WimFile:C:\winpe_x86\ISO\sources\boot.wim /index:1 /MountDir:C:\winpe_x86\mount
+Dism /Mount-Wim /WimFile:ISO\sources\boot.wim /index:1 /MountDir:mount
 
 ```
 
  - Salvar alterações da imagem do sistema:
 
 ```
-Dism /unmount-Wim /MountDir:C:\winpe_x86\mount /Commit
+Dism /unmount-Wim /MountDir:mount /Commit
 
 ```
 
  - Compilar arquivo ISO:
 ```
-oscdimg -n -bC:\winpe_x86\etfsboot.com C:\winpe_x86\ISO C:\winpe_x86\winpe_x86.iso
+oscdimg -n -betfsboot.com ISO winpe_x86.iso
 ```
 
  - Outras informações, acessar os guias presente na documentação o WAIK:
