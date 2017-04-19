@@ -7,24 +7,16 @@ set /A tryCount=0
 set maxTry=3
 set serverURI=%1
 
-if (%2) == () (
-	set silent=0
-) else (
-	set silent=1
-)
-
 call "%~dp0\winver.bat"
 
-if %silent% == 0 (
-	echo ************** Verificando Conectividade ************** 
-)
+echo ************** Verificando Conectividade **************
 
 :loop
 	
 	set /A tryCount=%tryCount%+1
 	echo %tryCount%ª Tentativa...
 
-	echo Verificando Ping...
+	echo * Verificando Ping...
 
 	if "%DEBUGING%" == "0" (
 		ping %serverURI% -n 4 -w 250 >nul
@@ -32,14 +24,14 @@ if %silent% == 0 (
 		ping %serverURI% -n 4 -w 250
 	)
 
-	echo *Codigo de retorno: %errorlevel%
+	echo * Codigo de retorno: %errorlevel%
 	echo.
 
 	if %errorlevel% == 1 (
 		goto tryError
 	)
 
-	echo Verificando Compartilhamentos...
+	echo * Verificando Compartilhamentos...
 
 	if "%DEBUGING%" == "0" (
 
@@ -53,7 +45,8 @@ if %silent% == 0 (
 		call net view %serverURI%
 	)
 
-	echo *Codigo de retorno: %errorlevel%
+	echo * Codigo de retorno: %errorlevel%
+	echo.
 
 	if %errorlevel% == 0 (
 		goto success
@@ -69,20 +62,16 @@ if %silent% == 0 (
 
 :fail
 
-	if %silent% == 0 (
-		echo ************** Sem Conexão ************** 
-		pause
-	)
+	echo * Sem Conexão! 
+	pause
 
 	endlocal
 	exit /B 1
 
 :success
-
-	if %silent% == 0 (
-		echo ************** Existe Conexão ************** 
-		pause
-	)
+	
+	echo * Existe Conexão! 
+	pause
 
 	endlocal
 	exit /B 0
