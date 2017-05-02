@@ -91,9 +91,12 @@ ATOM WinMain::registerClass(HINSTANCE hInstance) {
 	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_NETINSTALLER));
 	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW);
-	wcex.lpszMenuName = MAKEINTRESOURCE(IDC_NETINSTALLER);
 	wcex.lpszClassName = szWindowClass;
 	wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+
+	//TODO: Se precisar de menu, bolar algum mecanismo para manipular-lo
+	//wcex.lpszMenuName = MAKEINTRESOURCE(IDC_NETINSTALLER);
+	wcex.lpszMenuName = NULL;
 
 	return RegisterClassEx(&wcex);
 }
