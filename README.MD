@@ -54,7 +54,7 @@ oscdimg -n -bfwfiles\etfsboot.com media winpe10-1607_x64.iso
 
  - Compilar arquivo ISO para UEFI:
 ```
-oscdimg.exe -bfwfiles\efisys.bin -u2 -udfver102 media winpe10-1604_x64_uefi.iso
+oscdimg.exe -bfwfiles\efisys.bin -u2 -udfver102 media winpe10-1607_x64_uefi.iso
 ```
 
  - Para forçar o desmontamento da imagem .WIN
