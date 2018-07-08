@@ -11,6 +11,7 @@ class Application(object):
     installPathWidget = None
     runWidget = None
     networkStatusWidget = None
+    letterListWidget = None
 
     winTarget = 'win10'
     archTarget = 'x64'
@@ -29,11 +30,15 @@ class Application(object):
         self.installPathWidget = self.viewer.getWidgetById('install-path')
         self.runWidget = self.viewer.getWidgetById('run')
         self.networkStatusWidget = self.viewer.getWidgetById('network-status')
-
+        self.letterListWidget = self.viewer.getWidgetById('letter-list')
 
         self.runWidget['state'] = 'disabled'
         self.versionsWidget.bind('<<ComboboxSelected>>', Application.onSelectVerion);
         self.viewer.addCLickListener('refresh', Application.onClick)
+
+        self.letterListWidget['values'] = [chr(i)+':' for i in range(65, 91)];
+        self.letterListWidget.set(self.letterListWidget['values'][0])
+
 
     def run(self):
         self.refresh()
@@ -61,8 +66,6 @@ class Application(object):
             print('* Erro ao baixar o arquivo "'+self.jsonConfig+'".')
             print('* Codigo http: ' + str(response.status_code) + '.')
             return
-
-        
 
         cfg = response.json();
         if self.winTarget not in cfg:
@@ -97,8 +100,6 @@ class Application(object):
             Application.onSelectVerion(None)
         else:
             print('\t - Nenhuma versão disponível')
-
-
 
     @staticmethod
     def onClick(id, viewer, event):

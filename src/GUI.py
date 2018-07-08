@@ -106,7 +106,7 @@ def createViewer():
                         'extra': {'fill': 'x', 'padx': 5, 'pady': 5},
                         'widgets': [
                             {
-                                'id': 'letter',
+                                'id': 'letter-list',
                                 'type': Combobox,
                                 'width': 3,
                                 'height': 50,
