@@ -40,7 +40,7 @@ def createViewer():
                         'widgets': [
                             {
                                 'type': Label,
-                                'text': 'Versões disponiveis:',
+                                'text': 'Versões disponíveis:',
                                 'anchor': 'w',
                                 'extra': {'fill': 'x'}
                             },
@@ -110,7 +110,7 @@ def createViewer():
                                 'type': Combobox,
                                 'width': 3,
                                 'height': 50,
-                                'itens': ['A:'],
+                                'itens': [],
                                 'extra': {'side': 'left', 'padx': 3}
                             },
                             {
