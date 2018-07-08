@@ -1,7 +1,9 @@
 import sys
+from GUI import createViewer
+from Application import Application
 
 def main(argv):
-    app = Application(None)
+    app = Application(createViewer)
     app.init()
     app.run()
 
