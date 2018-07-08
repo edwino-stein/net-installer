@@ -1,7 +1,9 @@
 import sys
 
 def main(argv):
-    print("ola mundo")
+    app = Application(None)
+    app.init()
+    app.run()
 
 if __name__ == "__main__":
     main(sys.argv)
