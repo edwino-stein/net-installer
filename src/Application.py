@@ -48,6 +48,8 @@ class Application(object):
 
         self.runWidget['state'] = 'disabled'
         self.viewer.addCLickListener('run', Application.onClick)
+        self.viewer.addCLickListener('run-diskpart', Application.onClick)
+        self.viewer.addCLickListener('run-cmd', Application.onClick)
 
         self.versionsWidget.bind('<<ComboboxSelected>>', Application.onSelectVerion);
         self.viewer.addCLickListener('refresh', Application.onClick)
@@ -169,6 +171,12 @@ class Application(object):
 
         if id == 'run':
             Application.app.onRunBtnClick();
+
+        if id == 'run-diskpart':
+            Application.runProg(['start.bat', 'diskpart'], True);
+
+        if id == 'run-cmd':
+            Application.runProg(['start.bat', 'cmd'], True);
 
     @staticmethod
     def onSelectVerion(event):

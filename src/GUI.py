@@ -211,12 +211,14 @@ def createViewer():
                         'text': 'Carregar Driver',
                         'extra': {'fill': 'x', 'padx': 5, 'pady': 3}
                     },
-                    {
+                    {   
+                        'id': 'run-diskpart',
                         'type': Button,
                         'text': 'Diskpart',
                         'extra': {'fill': 'x', 'padx': 5, 'pady': 3}
                     },
                     {
+                        'id': 'run-cmd',
                         'type': Button,
                         'text': 'Prompt de Comando',
                         'extra': {'fill': 'x', 'padx': 5, 'pady': 3}
