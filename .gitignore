@@ -1,24 +1,6 @@
-Skip to content
-Features
-Business
-Explore
-Marketplace
-Pricing
+#User define
+temp/
 
-Search
-
-Sign in or Sign up
-2,594 69,617 31,992 github/gitignore
- Code  Pull requests 156  Projects 0  Insights
-Join GitHub today
-GitHub is home to over 28 million developers working together to host and review code, manage projects, and build software together.
-
-gitignore/Python.gitignore
-2eba0d6  on 11 Mar
-@shiftkey shiftkey Merge pull request #2612 from jtogrul/master
-@arcresu @shiftkey @Lucretiel @Harrison-G @jwg4 @Metallicow @misaelnieto @pmsosa @svkampen @vltr @matheussl @hugovk @ghisvail @EvandroLG @DSIW @toanant @2Cubed @weinihou @Visgean @nvie @skuschel @sigo @borntyping @roll @rmax @Cadmus
-     
-105 lines (84 sloc)  1.17 KB
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

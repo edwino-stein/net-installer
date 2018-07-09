@@ -117,7 +117,7 @@ def createViewer():
                             {
                                 'id': 'run',
                                 'type': Button,
-                                'text': 'Inicar',
+                                'text': 'Iniciar',
                                 'font': ("Verdana", "10", "bold"),
                                 'width': 30,
                                 'extra': {'side': 'right', 'padx': 3}
