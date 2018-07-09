@@ -144,9 +144,8 @@ class Application(object):
         else:
             if not self.mountShared(letter, serverUri, path, self.smbUser):
                 return
-    
-        os.chdir(letter)
-        Application.runProg([exe], True)
+
+        Application.runProg([letter + '\\' + exe], True)
 
     def mountShared(self, letter, serverUri, path, user):
 
