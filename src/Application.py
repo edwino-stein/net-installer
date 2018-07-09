@@ -63,7 +63,7 @@ class Application(object):
                 letters.append(l)
     
         self.letterListWidget['values'] = letters
-        self.letterListWidget.set(self.letterListWidget['values'][-1])
+        self.letterListWidget.set(self.letterListWidget['values'][0])
 
         self.bootModeWidget['text'] = self.bootMode
         self.archWidget['text'] = self.archTarget
