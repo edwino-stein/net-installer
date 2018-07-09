@@ -12,15 +12,23 @@ class Application(object):
     runWidget = None
     networkStatusWidget = None
     letterListWidget = None
+    bootModeWidget = None
+    archWidget = None
 
-    winTarget = 'win10'
-    archTarget = 'x64'
+    winTarget = ''
+    archTarget = ''
+    bootMode = ''
+
     jsonConfig = 'netinstall.json'
 
     availablePaths = {}
 
-    def __init__(self, createViewHandle):
+    def __init__(self, winTarget, arch, bootMode, createViewHandle):
         Application.app = self
+
+        self.winTarget = winTarget
+        self.archTarget = arch
+        self.bootMode = bootMode
         self.viewer = createViewHandle()
     
     def init(self):
@@ -31,6 +39,8 @@ class Application(object):
         self.runWidget = self.viewer.getWidgetById('run')
         self.networkStatusWidget = self.viewer.getWidgetById('network-status')
         self.letterListWidget = self.viewer.getWidgetById('letter-list')
+        self.bootModeWidget = self.viewer.getWidgetById('boot-mode')
+        self.archWidget = self.viewer.getWidgetById('arch')
 
         self.runWidget['state'] = 'disabled'
         self.versionsWidget.bind('<<ComboboxSelected>>', Application.onSelectVerion);
@@ -38,6 +48,9 @@ class Application(object):
 
         self.letterListWidget['values'] = [chr(i)+':' for i in range(65, 91)];
         self.letterListWidget.set(self.letterListWidget['values'][0])
+
+        self.bootModeWidget['text'] = self.bootMode
+        self.archWidget['text'] = self.archTarget
 
 
     def run(self):

@@ -108,6 +108,7 @@ def createViewer():
                             {
                                 'id': 'letter-list',
                                 'type': Combobox,
+                                'readonly': False,
                                 'width': 3,
                                 'height': 50,
                                 'itens': [],
@@ -155,16 +156,44 @@ def createViewer():
                         ]
                     },
                     {
-                        'type': Label,
-                        'text': 'Modo de boot: UEFI',
-                        'anchor': 'w',
-                        'extra': {'fill': 'x'}
+                        'type': Frame,
+                        'extra': {'fill': 'x'},
+                        'widgets':[
+                            {
+                                'type': Label,
+                                'text': 'Modo de boot:',
+                                'anchor': 'w',
+                                'extra': {'side': 'left'}
+                            },
+                            {
+                                'id': 'boot-mode',
+                                'type': Label,
+                                'text': 'Desconhecido',
+                                'font': ("Verdana", "8", "bold"),
+                                'anchor': 'w',
+                                'extra': {'side': 'left'}
+                            }
+                        ]
                     },
                     {
-                        'type': Label,
-                        'text': 'Arquitetura: x64',
-                        'anchor': 'w',
-                        'extra': {'fill': 'x'}
+                        'type': Frame,
+                        'extra': {'fill': 'x'},
+                        'widgets':[
+                            {
+                                'type': Label,
+                                'text': 'Arquitetura:',
+                                'anchor': 'w',
+                                'extra': {'side': 'left'}
+                            },
+                            {
+                                'id': 'arch',
+                                'type': Label,
+                                'text': 'Desconhecido',
+                                'font': ("Verdana", "8", "bold"),
+                                'anchor': 'w',
+                                'extra': {'side': 'left'}
+                            }
+                        ]
                     }
                 ]
             },
