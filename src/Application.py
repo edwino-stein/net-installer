@@ -1,4 +1,5 @@
 from subprocess import call
+from tkinter import filedialog
 import subprocess
 import requests
 import os
@@ -48,6 +49,7 @@ class Application(object):
 
         self.runWidget['state'] = 'disabled'
         self.viewer.addCLickListener('run', Application.onClick)
+        self.viewer.addCLickListener('load-driver', Application.onClick)
         self.viewer.addCLickListener('run-diskpart', Application.onClick)
         self.viewer.addCLickListener('run-cmd', Application.onClick)
 
@@ -163,20 +165,39 @@ class Application(object):
     def letterIsUsed(self, letter):
         return os.path.isdir(letter)
 
+    def onLoadDriverBtnClick(self):
+
+        driverFile = filedialog.askopenfilename(title = "Selecione o arquivo de driver...", filetypes = (("Driver .inf","*.inf"), ("all files","*.*")))
+
+        if not driverFile:
+            return
+
+        print('* Carregando arquivo de driver "'+driverFile+'"...')
+        code = Application.runProg(['drvload', driverFile], False)
+
+        if code != 0:
+            print('* Erro ao carregar driver com código '+ str(code) +'.')
+        else:
+            print("* Driver carregado com sucesso!")
+            self.refresh()
+
     @staticmethod
     def onClick(id, viewer, event):
 
         if id == 'refresh':
-            Application.app.refresh();
+            Application.app.refresh()
 
         if id == 'run':
-            Application.app.onRunBtnClick();
+            Application.app.onRunBtnClick()
+    
+        if id == 'load-driver':
+            Application.app.onLoadDriverBtnClick()
 
         if id == 'run-diskpart':
-            Application.runProg(['start.bat', 'diskpart'], True);
+            Application.runProg(['start.bat', 'diskpart'], True)
 
         if id == 'run-cmd':
-            Application.runProg(['start.bat', 'cmd'], True);
+            Application.runProg(['start.bat', 'cmd'], True)
 
     @staticmethod
     def onSelectVerion(event):

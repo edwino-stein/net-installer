@@ -207,6 +207,7 @@ def createViewer():
                 'extra': {'ipadx': 1, 'ipady': 1, 'padx': 10, 'pady': 5},
                 'widgets': [
                     {
+                        'id': 'load-driver',
                         'type': Button,
                         'text': 'Carregar Driver',
                         'extra': {'fill': 'x', 'padx': 5, 'pady': 3}
