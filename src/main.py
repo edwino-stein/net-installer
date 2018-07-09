@@ -13,7 +13,7 @@ def main(argv):
     else:
         arch = 'Desconhecida'
 
-    app = Application('win10', arch, 'MBR', createViewer)
+    app = Application(('pxe', 'gwh28dgcmp'),'win10', arch, 'MBR', createViewer)
     app.init()
     app.run()
 
