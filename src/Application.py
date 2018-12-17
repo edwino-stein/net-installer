@@ -3,6 +3,7 @@ from tkinter import filedialog
 import subprocess
 import requests
 import os
+import platform
 
 class Application(object):
     
@@ -31,9 +32,16 @@ class Application(object):
         Application.app = self
 
         self.bootMode = self.getBootType(isDBoot)
+        arch = platform.architecture()[0]
+        if arch == '64bit':
+            self.archTarget = 'x64'
+        elif arch == '32bit':
+            self.archTarget = 'x86'
+        else:
+            self.archTarget = 'Desconhecida'
+
         self.smbUser = smbUser
         self.winTarget = winTarget
-        self.archTarget = arch
         self.viewer = createViewHandle()
     
     def init(self):
