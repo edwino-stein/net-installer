@@ -5,7 +5,7 @@ from Application import Application
 
 def main(argv):
 
-    app = Application(('pxe', 'gwh28dgcmp'), 'win10', arch, bootMode, createViewer)
+    app = Application(('pxe', 'gwh28dgcmp'), 'win10', createViewer, argv)
     app.init()
     app.run()
 

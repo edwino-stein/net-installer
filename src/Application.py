@@ -28,10 +28,16 @@ class Application(object):
 
     availablePaths = {}
 
-    def __init__(self, smbUser, winTarget, arch, bootMode, createViewHandle):
+    def __init__(self, smbUser, winTarget, createViewHandle, args):
+
         Application.app = self
 
+        isDBoot = False
+
+        for i in args:
+            continue
         self.bootMode = self.getBootType(isDBoot)
+
         arch = platform.architecture()[0]
         if arch == '64bit':
             self.archTarget = 'x64'
