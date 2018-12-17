@@ -1,7 +1,7 @@
 ﻿# Laucher de instalação para windows via redes
 
 ## Windows 10
-É necessário ter instalado o **interpretador Python** referente a arquitetura utilizada, além do Ambiente de Ferramentas de Implantação e Geração de Imagens do **Windows Kits** para Windows 10.
+É necessário ter instalado o **interpretador Python** referente a arquitetura utilizada, além do Ambiente de Ferramentas de Implantação e Geração de Imagens do **Windows Kits** (Windows ADK) para Windows 10.
 
 #### Gerando imagem de boot
 
@@ -53,6 +53,16 @@
     ou
     ```
     Dism /unmount-Wim /MountDir:mount /Discard
+    ```
+
+ - Criar um diretorio de trabalho do WinPE:
+    x64:
+    ```
+    copype amd64 dir\x64\
+    ```
+    x86:
+    ```
+    copype x86 dir\x86\
     ```
 
 ## Windows 7 (Net Installer v1.0)
