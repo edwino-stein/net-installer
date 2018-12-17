@@ -11,10 +11,10 @@ def createViewer(dScaling = 0):
                 'type': LabelFrame,
                 'boder': (1, 'sunken'),
                 'fitLayout': False,
-                'width': 250,
-                'height': 225,
+                'width': 140,
+                'height': 195,
                 'text': 'Setup',
-                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 10, 'pady': 5},
+                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 5, 'pady': 0, 'side': 'left'},
                 'widgets': [
                     {
                         'type': Frame,
@@ -36,7 +36,7 @@ def createViewer(dScaling = 0):
                     },
                     {
                         'type': Frame,
-                        'extra': {'fill': 'x', 'padx': 5, 'pady': 3},
+                        'extra': {'fill': 'x', 'padx': 5, 'pady': 0},
                         'widgets': [
                             {
                                 'type': Label,
@@ -50,18 +50,15 @@ def createViewer(dScaling = 0):
                                     {
                                         'id': 'version-list',
                                         'type': Combobox,
-                                        'width': 27,
+                                        'width': 20,
                                         'readonly': False,
-                                        'itens': [],
-                                        'extra': {'side': 'left'},
+                                        'itens': []
                                     },
                                     {
                                         'id': 'refresh',
                                         'type': Button,
                                         'text': 'Atualizar',
-                                        'width': 50,
-                                        'font': ("Verdana", "7"),
-                                        'extra': {'padx': 3}
+                                        'extra': {'fill': 'x', 'pady': 5}
                                     }
                                 ]
                             }
@@ -69,7 +66,7 @@ def createViewer(dScaling = 0):
                     },
                     {
                         'type': Frame,
-                        'extra': {'fill': 'x', 'padx': 5, 'pady': 3},
+                        'extra': {'fill': 'x', 'padx': 5, 'pady': 0},
                         'widgets': [
                             {
                                 'type': Label,
@@ -91,26 +88,24 @@ def createViewer(dScaling = 0):
                         'boder': (1, 'sunken'),
                         'fitLayout': False,
                         'extra': {'pady': 5},
-                        'width': 240,
+                        'width': 140,
                         'height': 2,
                         'widgets':[]
                     },
                     {
                         'type': Label,
                         'text': 'Instalação',
-                        'font': ("Verdana", "8"),
                         'extra': {'fill': 'x', 'padx': 5},
                     },
                     {
                         'type': Frame,
-                        'extra': {'fill': 'x', 'padx': 5, 'pady': 5},
+                        'extra': {'fill': 'x'},
                         'widgets': [
                             {
                                 'id': 'letter-list',
                                 'type': Combobox,
                                 'readonly': False,
                                 'width': 3,
-                                'height': 50,
                                 'itens': [],
                                 'extra': {'side': 'left', 'padx': 3}
                             },
@@ -118,9 +113,9 @@ def createViewer(dScaling = 0):
                                 'id': 'run',
                                 'type': Button,
                                 'text': 'Iniciar',
-                                'font': ("Verdana", "10", "bold"),
                                 'width': 30,
-                                'extra': {'side': 'right', 'padx': 3}
+                                'font': ("TkDefaultFont", "12", "bold"),
+                                'extra': {'side': 'right', "pady": 3, "padx": 3}
                             }
                         ]
                     }
@@ -130,10 +125,10 @@ def createViewer(dScaling = 0):
                 'type': LabelFrame,
                 'boder': (1, 'sunken'),
                 'fitLayout': False,
-                'width': 250,
-                'height': 85,
+                'width': 140,
+                'height': 63,
                 'text': 'Status',
-                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 10, 'pady': 5},
+                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 5, 'pady': 5},
                 'widgets': [
                     {
                         'type': Frame,
@@ -201,10 +196,10 @@ def createViewer(dScaling = 0):
                 'type': LabelFrame,
                 'boder': (1, 'sunken'),
                 'fitLayout': False,
-                'width': 250,
-                'height': 115,
+                'width': 140,
+                'height': 90,
                 'text': 'Utilitários',
-                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 10, 'pady': 5},
+                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 5, 'pady': 5},
                 'widgets': [
                     {
                         'id': 'load-driver',
@@ -229,22 +224,14 @@ def createViewer(dScaling = 0):
             {
                 'type': Frame,
                 'fitLayout': False,
-                'width': 250,
+                'width': 140,
                 'height': 20,
-                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 0, 'pady': 3},
+                'extra': {'ipadx': 1, 'ipady': 1, 'padx': 5, 'pady': 10},
                 'widgets': [
                     {
                         'type': Label,
-                        'text': 'Edwino Stein - 2018',
-                        'width': 29,
-                        'anchor': 'w',
-                        'extra': {'side': 'left'},
-                    },
-                    {
-                        'type': Label,
-                        'text': 'v2.0.0d',
-                        'anchor': 'e',
-                        'extra': {'side': 'left'},
+                        'text': 'Edwino Stein - 2018 - v2.1.0d',
+                        'anchor': 'center'
                     }
                 ]
             }
