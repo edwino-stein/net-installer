@@ -2,7 +2,7 @@ from Viewer import Viewer
 from tkinter import *
 from tkinter.ttk import Combobox
 
-def createViewer():
+def createViewer(dScaling = 0):
     return Viewer({
         'title': 'NetInstaller',
         'resizable': False,
@@ -249,4 +249,4 @@ def createViewer():
                 ]
             }
         ]
-    })
+    }, dScaling)

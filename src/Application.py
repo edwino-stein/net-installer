@@ -32,6 +32,7 @@ class Application(object):
 
         Application.app = self
 
+        dScaling = 0
         isDBoot = False
 
         for i in args:
@@ -51,7 +52,7 @@ class Application(object):
 
         self.smbUser = smbUser
         self.winTarget = winTarget
-        self.viewer = createViewHandle()
+        self.viewer = createViewHandle(dScaling)
     
     def init(self):
 

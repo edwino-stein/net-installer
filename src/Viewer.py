@@ -5,9 +5,14 @@ class Viewer (object):
     
     supportedTypes = ['Label', 'Button', 'Entry', 'Frame', 'LabelFrame', 'Combobox']
 
-    def __init__(self, cfg):
+    def __init__(self, cfg, debugScaling = 0):
 
         self.windowRoot = Tk()
+
+        if debugScaling > 0:
+            self.windowRoot.tk.call('tk', 'scaling', debugScaling)
+
+        self.scaling = self.windowRoot.tk.call('tk', 'scaling')
 
         if 'title' in cfg:
             self.windowRoot.title(cfg['title'])
@@ -61,7 +66,7 @@ class Viewer (object):
         self.widgetsById[cfg['id']] = self.widgetsPool[-1]
 
         if 'extra' in cfg:
-            widget.pack(cfg['extra']);
+            widget.pack(self.parseExtra(cfg['extra']));
         else:
             widget.pack();
         
@@ -75,10 +80,10 @@ class Viewer (object):
             widget['font'] = cfg['font'];
 
         if('width' in cfg):
-            widget['width'] = cfg['width'];
+            widget['width'] = self.toScale(cfg['width']);
 
         if('height' in cfg):
-            widget['height'] = cfg['height'];
+            widget['height'] = self.toScale(cfg['height']);
 
         if('color' in cfg):
             widget['fg'] = cfg['color'];
@@ -121,7 +126,7 @@ class Viewer (object):
         
         if 'boder' in cfg:
            if len(cfg['boder']) >= 1:
-               frame['borderwidth'] = cfg['boder'][0]
+               frame['borderwidth'] = self.toScale(cfg['boder'][0])
 
            if len(cfg['boder']) >= 2:
                frame['relief'] = cfg['boder'][1]
@@ -149,6 +154,18 @@ class Viewer (object):
             return self.widgetsById[id][0]
         else:
             return None
+
+    def toScale(self, value):
+        return int(self.scaling * value)
+
+    def parseExtra(self, extra):
+        applyScale = ("ipadx", "ipady", "padx", "pady")
+
+        for i in extra:
+            if i in applyScale:
+                extra[i] = self.toScale(extra[i])
+
+        return extra
 
     def loop(self):
         self.windowRoot.mainloop()
