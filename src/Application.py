@@ -35,7 +35,10 @@ class Application(object):
         isDBoot = False
 
         for i in args:
-            continue
+
+            if "dboot=" in i:
+                isDBoot = i.split("=")[1] == "1"
+                continue
         self.bootMode = self.getBootType(isDBoot)
 
         arch = platform.architecture()[0]

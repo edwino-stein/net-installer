@@ -76,3 +76,6 @@ Compile o código para release em x86 e então gere uma imagem x86 com o Windows
  - Outras informações, acessar os guias presente na documentação o WAIK:
     * Walkthrough: Create a Custom Windows PE Image.
     * Walkthrough: Create a Bootable Windows PE RAM Disk on CD-ROM.
+
+## Parametros para Debug
+ - dboot=<0|1>: Ativa ou desativa a checagem do tipo de boot.
