@@ -30,10 +30,10 @@ class Application(object):
     def __init__(self, smbUser, winTarget, arch, bootMode, createViewHandle):
         Application.app = self
 
+        self.bootMode = self.getBootType(isDBoot)
         self.smbUser = smbUser
         self.winTarget = winTarget
         self.archTarget = arch
-        self.bootMode = bootMode
         self.viewer = createViewHandle()
     
     def init(self):
@@ -217,4 +217,23 @@ class Application(object):
             return subprocess.Popen(entry)
         else:
             return call(entry)
+
+    @staticmethod
+    def getBootType(isDebug):
+
+        if isDebug :
+            return "DEBUG"
+
+        output = subprocess.check_output(['boot-mode.bat'])
+        if output == None :
+            return 'Desconhecido'
+
+        bootTypeCode = str(output).split(' ')[-1].split('\\r')[0];
+
+        if bootTypeCode == '0x1':
+            return 'BIOS'
+        elif bootTypeCode == '0x2':
+            return 'UEFI'
+        else:
+            return 'Desconhecido'
         
