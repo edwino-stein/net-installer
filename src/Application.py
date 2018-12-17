@@ -40,6 +40,11 @@ class Application(object):
             if "dboot=" in i:
                 isDBoot = i.split("=")[1] == "1"
                 continue
+
+            if "dscaling=" in i:
+                dScaling = float(i.split("=")[1]);
+                continue
+
         self.bootMode = self.getBootType(isDBoot)
 
         arch = platform.architecture()[0]

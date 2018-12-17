@@ -79,3 +79,4 @@ Compile o código para release em x86 e então gere uma imagem x86 com o Windows
 
 ## Parametros para Debug
  - dboot=<0|1>: Ativa ou desativa a checagem do tipo de boot.
+ - dscaling=<n>: Define a escala de DPI costumizada para a aplicação. Se n deve ser um valor zero ou positivo, caso seja zero a escala será a padrão do SO.
